@@ -152,7 +152,6 @@ jobs:
         source build/envsetup.sh
         export ALLOW_MISSING_DEPENDENCIES=true
         lunch ${{ github.event.inputs.MAKEFILE_NAME }}-eng && make clean && make ${{ github.event.inputs.BUILD_TARGET }}image -j$(nproc --all)
-        ldcheck -p system/lib64:vendor/lib64 -d vendor/bin/qseecomd
       working-directory: ${{ steps.pwd.outputs.workspace-folder }}
 
     - name: Upload to Release
